@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
 interface Props {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props): any => {
+const Layout: React.FC<Props> = ({ children }) => {
   return <div className="layout">{children}</div>;
 };
 

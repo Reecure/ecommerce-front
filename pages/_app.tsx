@@ -1,10 +1,14 @@
-import { Provider } from "react-redux";
-import type { AppProps } from "next/app";
-import { store } from "../redux/store";
-import "../assets/main.css";
+import { AppProps } from "next/app";
+import "../public/tailwind.css";
 import { FC } from "react";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
-const Noop = ({ children }: any) => <>{children}</>;
+interface Props {
+  children: React.ReactNode;
+}
+
+const Noop: FC<Props> = ({ children }) => <>{children}</>;
 
 function MyApp({ Component, pageProps }: any & { Component: { Layout: FC } }) {
   const Layout = Component.Layout ?? Noop;

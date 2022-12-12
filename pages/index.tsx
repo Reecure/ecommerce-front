@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Layout } from "../components/common";
+import ProductCard from "../components/product/ProductCard";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchProdsById } from "../redux/prodsSlice/prodsSlice";
 
@@ -20,7 +21,9 @@ const Home = () => {
       {status === "loading" ? (
         <div>loading</div>
       ) : (
-        <ul>{JSON.stringify(prods)}</ul>
+        prods.map((product) => {
+          return <ProductCard key={product.id} product={product} />;
+        })
       )}
     </Layout>
   );
